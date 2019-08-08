@@ -10,4 +10,12 @@ colorscheme poolside
 syntax enable
 ```
 
+### Italics Support
+This theme supports italics for code comments;  since not all terminals support italics this is something you'll have to enable in your vim configuration if you want to use it with your italics friendly terminal:
+
+```vim
+" Enable italicized coments
+let g:poolside_terminal_italics=1
+```
+
 ## To get a similar theme for other apps, check out [this repo](https://github.com/sansbrina/poolside-themes)

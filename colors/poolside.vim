@@ -24,6 +24,25 @@
   """"""""""
 
   exec "hi Normal guifg=".s:shade6." guibg=".s:shade0
+  "
+  " Not all terminals support italics properly. If yours does, opt-in.
+  if !exists("g:poolside_terminal_italics")
+          let g:poolside_terminal_italics = 0
+  endif
+  function! s:h(group, style)
+          if g:poolside_terminal_italics == 0 && has_key(a:style, "cterm") && a:style["cterm"] == "italic"
+                  unlet a:style.cterm
+          endif
+          execute "highlight" a:group
+                                  \ "guifg="   (has_key(a:style, "fg")    ? a:style.fg.gui   : "NONE")
+                                  \ "guibg="   (has_key(a:style, "bg")    ? a:style.bg.gui   : "NONE")
+                                  \ "guisp="   (has_key(a:style, "sp")    ? a:style.sp.gui   : "NONE")
+                                  \ "gui="     (has_key(a:style, "gui")   ? a:style.gui      : "NONE")
+                                  \ "ctermfg=" . l:ctermfg
+                                  \ "ctermbg=" . l:ctermbg
+                                  \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
+  endfunction
+
 
   """""""""""""""""
   " Syntax groups "
