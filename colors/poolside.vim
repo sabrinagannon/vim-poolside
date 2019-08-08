@@ -49,8 +49,7 @@
   """""""""""""""""
 
   " Default
-
-  exec "hi Comment guifg=".s:shade2
+  exec "hi Comment guifg=".s:shade2." gui=italic cterm=italic"
   exec "hi Constant guifg=".s:accent3
   exec "hi Character guifg=".s:accent4
   exec "hi Identifier guifg=".s:accent2." gui=none cterm=none"
@@ -71,7 +70,7 @@
 
   " fugitive
 
-  exec "hi gitcommitComment guifg=".s:shade3
+  exec "hi gitcommitComment guifg=".s:shade3." gui=italic cterm=italic"
   exec "hi gitcommitOnBranch guifg=".s:shade3
   exec "hi gitcommitHeader guifg=".s:shade5
   exec "hi gitcommitHead guifg=".s:shade3
